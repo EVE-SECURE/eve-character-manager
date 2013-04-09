@@ -19,7 +19,9 @@ import org.eclipse.wb.swing.FocusTraversalOnArray;
 
 public class ECM {
 
-	//variables
+	//-------------
+	//  variables
+	//-------------
 	JFrame mainFrame;
 	JPanel mainPanel;
 	JPanel skillPanel;
@@ -33,6 +35,11 @@ public class ECM {
 	CardLayout cl = new CardLayout(0,0);
 	public static boolean manageAcctOpen = false;
 
+	
+	
+	//---------------
+	//     MAIN
+	//---------------
 	public static void main(String[] args){
 
 		EventQueue.invokeLater(new Runnable() {
@@ -49,10 +56,22 @@ public class ECM {
 	}
 
 
+	
+	//---------------
+	//  CONSTRUCTOR
+	//---------------
 	public ECM(){
 		initialize();
 	}
 
+	
+	//---------------
+	//  INITIALIZE
+	//---------------
+	
+	/*
+	 * This method is designed to draw the basic UI layout, including the Menu bar and menu options/items
+	 */
 	private void initialize(){
 		mainFrame = new JFrame("EVE Character Manager");
 		mainFrame.setBounds(100,100,800,600);
