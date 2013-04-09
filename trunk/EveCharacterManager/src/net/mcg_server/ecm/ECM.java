@@ -31,6 +31,7 @@ public class ECM {
 	JMenuItem miMainPanel;
 	JMenuItem miSkillPanel;
 	CardLayout cl = new CardLayout(0,0);
+	public static boolean manageAcctOpen = false;
 
 	public static void main(String[] args){
 
@@ -53,7 +54,7 @@ public class ECM {
 	}
 
 	private void initialize(){
-		mainFrame = new JFrame();
+		mainFrame = new JFrame("EVE Character Manager");
 		mainFrame.setBounds(100,100,800,600);
 		mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		mainFrame.getContentPane().setLayout(cl);
@@ -113,7 +114,10 @@ public class ECM {
 		manageAcct.addActionListener(new ActionListener(){
 			@Override
 			public void actionPerformed(ActionEvent e){
-				new AccountManageWindow();
+				if(!manageAcctOpen){
+					manageAcctOpen = true;
+					new AccountManageWindow();
+				}
 			}
 		});
 
