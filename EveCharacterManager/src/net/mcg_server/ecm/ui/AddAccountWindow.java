@@ -25,6 +25,7 @@ public class AddAccountWindow {
 	private void initialize(){
 		frame = new JFrame("Add Account");
 		frame.setBounds(100,100,400,300);
+		frame.setAlwaysOnTop(true);
 		JPanel panel = new JPanel(new GridBagLayout());
 
 		GridBagConstraints c = new GridBagConstraints();
@@ -86,6 +87,7 @@ public class AddAccountWindow {
 			@Override
 			public void windowClosing(WindowEvent e){
 				AccountManageWindow.addAcctOpen = false;
+				AccountManageWindow.preventClose = false;
 				frame.dispose();
 			}
 		});

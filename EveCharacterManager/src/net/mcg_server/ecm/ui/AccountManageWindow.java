@@ -16,12 +16,13 @@ import net.mcg_server.ecm.ECM;
 
 public class AccountManageWindow {
 
-	JFrame frame;
+	static JFrame frame;
 
 	final static boolean shouldFill = true;
 	final static boolean shouldWeightX = true;
 	final static boolean RIGHT_TO_LEFT = false;
 	public static boolean addAcctOpen = false;
+	public static boolean preventClose = false;
 
 	public AccountManageWindow(){
 		initialize();
@@ -66,16 +67,20 @@ public class AccountManageWindow {
 				// open AddAccountWindow
 				if(!addAcctOpen){
 					addAcctOpen = true;
+					preventClose = true;
+					frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 					new AddAccountWindow();
 				}
 			}
 		});
-		
+
 		frame.addWindowListener(new WindowAdapter(){
 			@Override
 			public void windowClosing(WindowEvent e){
-				ECM.manageAcctOpen = false;
-				frame.dispose();
+				if(!preventClose){
+					ECM.manageAcctOpen = false;
+					frame.dispose();
+				}
 			}
 		});
 	}
