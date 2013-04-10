@@ -2,6 +2,8 @@ package net.mcg_server.ecm.ui;
 
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
@@ -20,7 +22,7 @@ public class AddAccountWindow {
 	JFrame frame;
 	final static boolean shouldFill = true;
 
-	
+
 	//---------------
 	//  Constructor
 	//---------------
@@ -29,18 +31,19 @@ public class AddAccountWindow {
 		frame.setVisible(true);
 	}
 
-	
+
 	// INITIALIZE
 	/*
 	 * Creates the Add Account window
 	 */
 	private void initialize(){
-		
+
 		//create the frame and set properties
 		frame = new JFrame("Add Account");
 		frame.setBounds(100,100,400,300);
 		frame.setAlwaysOnTop(true);
-		
+		frame.setResizable(false);
+
 		//create the panel and define the layout
 		JPanel panel = new JPanel(new GridBagLayout());
 
@@ -53,7 +56,7 @@ public class AddAccountWindow {
 
 		//add the panel to the frame
 		frame.add(panel);
-		
+
 		//create empty space
 		Box box1 = new Box(0);
 		c.fill = GridBagConstraints.HORIZONTAL;
@@ -98,7 +101,7 @@ public class AddAccountWindow {
 		c.gridx = 1;
 		c.gridy = 2;
 		panel.add(vCode, c);
-		
+
 		//create button and define its position
 		JButton addAcctButton = new JButton("Add Account");
 		c.fill = GridBagConstraints.HORIZONTAL;
@@ -106,8 +109,8 @@ public class AddAccountWindow {
 		c.gridx = 1;
 		c.gridy = 3;
 		panel.add(addAcctButton, c);
-		
-		
+
+
 		// EVENT LISTENER
 		//close the window
 		frame.addWindowListener(new WindowAdapter(){
@@ -116,6 +119,16 @@ public class AddAccountWindow {
 				AccountManageWindow.addAcctOpen = false;
 				AccountManageWindow.preventClose = false;
 				frame.dispose();
+			}
+		});
+
+		addAcctButton.addActionListener(new ActionListener(){
+			@Override
+			public void actionPerformed(ActionEvent e){
+				AccountManageWindow.addAcctOpen = false;
+				AccountManageWindow.preventClose = false;
+				frame.dispose();
+
 			}
 		});
 	}
