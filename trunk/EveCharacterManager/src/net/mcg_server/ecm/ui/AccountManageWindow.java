@@ -62,6 +62,7 @@ public class AccountManageWindow {
 		//add a text area and define it's position in the layout
 		JTextArea description = new JTextArea("This is where the page description goes \n"+
 				"More Text here using \\n. \n");
+		description.setEditable(false);
 		c.fill = GridBagConstraints.HORIZONTAL;
 		c.gridwidth = 2;
 		c.ipady = 4;
