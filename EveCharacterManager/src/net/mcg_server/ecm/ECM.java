@@ -73,14 +73,18 @@ public class ECM {
 	 * This method is designed to draw the basic UI layout, including the Menu bar and menu options/items
 	 */
 	private void initialize(){
+		
+		// create main application frame
 		mainFrame = new JFrame("EVE Character Manager");
 		mainFrame.setBounds(100,100,800,600);
 		mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		mainFrame.getContentPane().setLayout(cl);
 
+		// initialize and add main panel
 		mainPanel = new JPanel();
 		mainFrame.getContentPane().add(mainPanel, "mainPanel");
 
+		// initialize and add skill panel
 		skillPanel = new JPanel();
 		mainFrame.getContentPane().add(skillPanel, "skillPanel");
 		mainFrame.getContentPane().setFocusTraversalPolicy(new FocusTraversalOnArray(new Component[]{mainPanel,skillPanel}));
@@ -115,6 +119,7 @@ public class ECM {
 
 
 		//Add Event Listeners to the menu items
+		//display mainPanel
 		miMainPanel.addActionListener(new ActionListener(){
 			@Override
 			public void actionPerformed(ActionEvent e){
@@ -123,6 +128,7 @@ public class ECM {
 			}
 		});
 
+		//displaySkillPanel
 		miSkillPanel.addActionListener(new ActionListener(){
 			@Override
 			public void actionPerformed(ActionEvent e){
@@ -130,6 +136,7 @@ public class ECM {
 			}
 		});
 		
+		//open AccountManageWindow
 		manageAcct.addActionListener(new ActionListener(){
 			@Override
 			public void actionPerformed(ActionEvent e){
@@ -140,6 +147,7 @@ public class ECM {
 			}
 		});
 
+		//close the application
 		closeApp.addActionListener(new ActionListener(){
 			@Override
 			public void actionPerformed(ActionEvent e){
