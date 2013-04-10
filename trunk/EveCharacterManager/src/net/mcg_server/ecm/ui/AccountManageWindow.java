@@ -16,33 +16,50 @@ import net.mcg_server.ecm.ECM;
 
 public class AccountManageWindow {
 
+	//--------------
+	//  Variables
+	//--------------
 	static JFrame frame;
-
 	final static boolean shouldFill = true;
 	final static boolean shouldWeightX = true;
 	final static boolean RIGHT_TO_LEFT = false;
 	public static boolean addAcctOpen = false;
 	public static boolean preventClose = false;
 
+	
+	//----------------
+	//  Constructor
+	//----------------
 	public AccountManageWindow(){
 		initialize();
 		frame.setVisible(true);
 	}
 
+	
+	// INITIALIZE
+	/*
+	 * Creates the Account Management window
+	 */
 	private void initialize(){
+		
+		//Create the frame
 		frame = new JFrame("Account Management");
 		frame.setBounds(100,100,400,150);
 
+		//create the panel and set the layout
 		JPanel panel = new JPanel(new GridBagLayout());
 
+		//define the layout constraints
 		GridBagConstraints c = new GridBagConstraints();
 		if(shouldFill){
 			//natural height, max width
 			c.fill = GridBagConstraints.HORIZONTAL;
 		}
 
+		//add the panel to the frame
 		frame.add(panel);
 
+		//add a text area and define it's position in the layout
 		JTextArea description = new JTextArea("This is where the page description goes \n"+
 				"More Text here using \\n. \n");
 		c.fill = GridBagConstraints.HORIZONTAL;
@@ -53,6 +70,7 @@ public class AccountManageWindow {
 		c.gridy = 0;
 		panel.add(description, c);
 
+		//add the Add Account button and define it's position in the layout
 		JButton button = new JButton("Add Account");
 		c.fill = GridBagConstraints.HORIZONTAL;
 		c.ipady = 4;
@@ -61,6 +79,9 @@ public class AccountManageWindow {
 		c.gridy = 1;
 		panel.add(button, c);
 
+		
+		// EVENT LISTENERS
+		//open AddAccountWindow
 		button.addActionListener(new ActionListener(){
 			@Override
 			public void actionPerformed(ActionEvent e){
@@ -74,6 +95,7 @@ public class AccountManageWindow {
 			}
 		});
 
+		//close AccountManageWindow
 		frame.addWindowListener(new WindowAdapter(){
 			@Override
 			public void windowClosing(WindowEvent e){
