@@ -45,6 +45,7 @@ public class AccountManageWindow {
 		//Create the frame
 		frame = new JFrame("Account Management");
 		frame.setBounds(100,100,400,150);
+		frame.setAlwaysOnTop(true);
 
 		//create the panel and set the layout
 		JPanel panel = new JPanel(new GridBagLayout());
