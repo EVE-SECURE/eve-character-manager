@@ -3,18 +3,13 @@ package net.mcg_server.ecm;
 import java.awt.CardLayout;
 import java.awt.Component;
 import java.awt.EventQueue;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 import javax.swing.JFrame;
-import javax.swing.JMenu;
-import javax.swing.JMenuBar;
-import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 
-import net.mcg_server.ecm.ui.AccountManageWindow;
 import net.mcg_server.ecm.ui.MainPanel;
 import net.mcg_server.ecm.ui.SkillsPanel;
+import net.mcg_server.ecm.ui.menu.MenuBar;
 
 import org.eclipse.wb.swing.FocusTraversalOnArray;
 
@@ -26,13 +21,7 @@ public class ECM {
 	JFrame mainFrame;
 	JPanel mainPanel;
 	JPanel skillPanel;
-	JMenuBar menuBar;
-	JMenu fileMenu;
-	JMenu viewMenu;
-	JMenuItem manageAcct;
-	JMenuItem closeApp;
-	JMenuItem miMainPanel;
-	JMenuItem miSkillPanel;
+	MenuBar menuBar;
 	CardLayout cl = new CardLayout(0,0);
 	public static boolean manageAcctOpen = false;
 
@@ -89,66 +78,28 @@ public class ECM {
 		skillPanel = new SkillsPanel();
 		mainFrame.getContentPane().add(skillPanel, "skillPanel");
 		mainFrame.getContentPane().setFocusTraversalPolicy(new FocusTraversalOnArray(new Component[]{mainPanel,skillPanel}));
-
+		
 		//add menu bar
-		menuBar = new JMenuBar();
+		menuBar = new MenuBar(this, mainFrame);
 		mainFrame.setJMenuBar(menuBar);
 
-		//add menus
-		fileMenu = new JMenu("File");
-		viewMenu = new JMenu("View");
-		menuBar.add(fileMenu);
-		menuBar.add(viewMenu);
-
-		//add file menu items
-		manageAcct = new JMenuItem("Manage Accounts");
-		closeApp = new JMenuItem("Close");
-		fileMenu.add(manageAcct);
-		fileMenu.add(closeApp);
-
-		//add view menu items
-		miMainPanel = new JMenuItem("Main");
-		miSkillPanel = new JMenuItem("Skills");
-		viewMenu.add(miMainPanel);
-		viewMenu.add(miSkillPanel);
-
-		//Add Event Listeners to the menu items
-		//display mainPanel
-		miMainPanel.addActionListener(new ActionListener(){
-			@Override
-			public void actionPerformed(ActionEvent e){
-				cl.show(mainFrame.getContentPane(), "mainPanel");
-
-			}
-		});
-
-		//displaySkillPanel
-		miSkillPanel.addActionListener(new ActionListener(){
-			@Override
-			public void actionPerformed(ActionEvent e){
-				cl.show(mainFrame.getContentPane(), "skillPanel");
-			}
-		});
-		
-		//open AccountManageWindow
-		manageAcct.addActionListener(new ActionListener(){
-			@Override
-			public void actionPerformed(ActionEvent e){
-				if(!manageAcctOpen){
-					manageAcctOpen = true;
-					new AccountManageWindow();
-				}
-			}
-		});
-
-		//close the application
-		closeApp.addActionListener(new ActionListener(){
-			@Override
-			public void actionPerformed(ActionEvent e){
-				System.exit(0);
-			}
-		});
-
+	}
+	
+	
+	
+	//---------------
+	// METHODS
+	//---------------
+	
+	public JFrame getMainFrame(){
+		return mainFrame;
 	}
 
+	public void showMainPanel(){
+		cl.show(mainFrame.getContentPane(), "mainPanel");
+	}
+	
+	public void showSkillPanel(){
+		cl.show(mainFrame.getContentPane(), "skillPanel");
+	}
 }
