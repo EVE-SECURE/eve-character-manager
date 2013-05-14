@@ -14,6 +14,7 @@ import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 
 import net.mcg_server.ecm.ui.AccountManageWindow;
+import net.mcg_server.ecm.ui.MainPanel;
 
 import org.eclipse.wb.swing.FocusTraversalOnArray;
 
@@ -81,7 +82,7 @@ public class ECM {
 		mainFrame.getContentPane().setLayout(cl);
 
 		// initialize and add main panel
-		mainPanel = new JPanel();
+		mainPanel = new MainPanel();
 		mainFrame.getContentPane().add(mainPanel, "mainPanel");
 
 		// initialize and add skill panel
@@ -112,9 +113,7 @@ public class ECM {
 		viewMenu.add(miSkillPanel);
 
 		//add some UI Elements to the Main and Skills panels
-		JLabel label1 = new JLabel("Main Panel");
 		JLabel label2 = new JLabel("Skills Panel");
-		mainPanel.add(label1);
 		skillPanel.add(label2);
 
 
