@@ -81,7 +81,6 @@ public class ECM {
 		
 		//add menu bar
 		menuBar = new MenuBar(this, mainFrame);
-		mainFrame.setJMenuBar(menuBar);
 
 	}
 	
