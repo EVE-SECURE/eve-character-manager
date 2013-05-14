@@ -7,7 +7,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
@@ -15,6 +14,7 @@ import javax.swing.JPanel;
 
 import net.mcg_server.ecm.ui.AccountManageWindow;
 import net.mcg_server.ecm.ui.MainPanel;
+import net.mcg_server.ecm.ui.SkillsPanel;
 
 import org.eclipse.wb.swing.FocusTraversalOnArray;
 
@@ -86,7 +86,7 @@ public class ECM {
 		mainFrame.getContentPane().add(mainPanel, "mainPanel");
 
 		// initialize and add skill panel
-		skillPanel = new JPanel();
+		skillPanel = new SkillsPanel();
 		mainFrame.getContentPane().add(skillPanel, "skillPanel");
 		mainFrame.getContentPane().setFocusTraversalPolicy(new FocusTraversalOnArray(new Component[]{mainPanel,skillPanel}));
 
@@ -111,11 +111,6 @@ public class ECM {
 		miSkillPanel = new JMenuItem("Skills");
 		viewMenu.add(miMainPanel);
 		viewMenu.add(miSkillPanel);
-
-		//add some UI Elements to the Main and Skills panels
-		JLabel label2 = new JLabel("Skills Panel");
-		skillPanel.add(label2);
-
 
 		//Add Event Listeners to the menu items
 		//display mainPanel
