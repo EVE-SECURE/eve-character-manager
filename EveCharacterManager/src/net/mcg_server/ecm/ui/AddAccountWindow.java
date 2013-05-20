@@ -114,9 +114,16 @@ public class AddAccountWindow {
 			}
 		});
 
+		// EVENT LISTENER
+		// add account then close window
 		addAcctButton.addActionListener(new ActionListener(){
 			@Override
 			public void actionPerformed(ActionEvent e){
+				try{
+					//addAccount(keyID, vCode);
+				}catch(Exception x){
+					
+				}
 				AccountManageWindow.addAcctOpen = false;
 				AccountManageWindow.preventClose = false;
 				frame.dispose();
