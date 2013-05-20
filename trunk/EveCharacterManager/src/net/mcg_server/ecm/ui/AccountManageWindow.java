@@ -109,12 +109,4 @@ public class AccountManageWindow {
 			}
 		});
 	}
-	
-	//-----------
-	// METHODS
-	//-----------
-	
-	public boolean getAccountWindowOpenBool(){
-		return addAcctOpen;
-	}
 }
