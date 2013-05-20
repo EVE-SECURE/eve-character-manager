@@ -23,7 +23,6 @@ public class ECM {
 	JPanel skillPanel;
 	MenuBar menuBar;
 	CardLayout cl = new CardLayout(0,0);
-	public static boolean manageAcctOpen = false;
 
 	
 	
@@ -101,4 +100,5 @@ public class ECM {
 	public void showSkillPanel(){
 		cl.show(mainFrame.getContentPane(), "skillPanel");
 	}
+	
 }

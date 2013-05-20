@@ -12,7 +12,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import net.mcg_server.ecm.ECM;
+import net.mcg_server.ecm.ui.menu.MenuBar;
 
 public class AccountManageWindow {
 
@@ -103,10 +103,18 @@ public class AccountManageWindow {
 			@Override
 			public void windowClosing(WindowEvent e){
 				if(!preventClose){
-					ECM.manageAcctOpen = false;
+					MenuBar.manageAcctOpen = false;
 					frame.dispose();
 				}
 			}
 		});
+	}
+	
+	//-----------
+	// METHODS
+	//-----------
+	
+	public boolean getAccountWindowOpenBool(){
+		return addAcctOpen;
 	}
 }
