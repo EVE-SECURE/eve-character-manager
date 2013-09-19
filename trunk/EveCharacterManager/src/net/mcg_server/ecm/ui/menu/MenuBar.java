@@ -1,6 +1,5 @@
 package net.mcg_server.ecm.ui.menu;
 
-import java.awt.CardLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -23,7 +22,6 @@ public class MenuBar extends JMenuBar{
 	JMenuItem closeApp;
 	JMenuItem miMainPanel;
 	JMenuItem miSkillPanel;
-	CardLayout cl = new CardLayout(0,0);
 	public static boolean manageAcctOpen = false;
 
 	
