@@ -1,18 +1,20 @@
 package net.mcg_server.ecm.ui;
 
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
+import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
+import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.border.Border;
 
 public class AddAccountWindow {
 
@@ -40,55 +42,59 @@ public class AddAccountWindow {
 
 		//create the frame and set properties
 		frame = new JFrame("Add Account");
-		frame.setBounds(100,100,300,200);
+		frame.setBounds(250,200,400,180);
 		frame.setAlwaysOnTop(true);
 		frame.setResizable(false);
 
 		//create the panel and define the layout
-		JPanel panel = new JPanel(new GridBagLayout());
-
-		//define layout constraints
-		GridBagConstraints c = new GridBagConstraints();
-		if(shouldFill){
-			//natural height, max width
-			c.fill = GridBagConstraints.HORIZONTAL;
-		}
-
+		JPanel panel = new JPanel();
+		panel.setLayout(null);
+		
 		//add the panel to the frame
 		frame.add(panel);
 
 		//create label and define its position
 		JLabel keyIdLabel = new JLabel("  KeyID: ");
-		c.gridx = 1;
-		c.gridwidth = 1;
-		c.gridy = 0;
-		panel.add(keyIdLabel, c);
+		panel.add(keyIdLabel);
 
 		//create text field and define its position
 		JTextField keyId = new JTextField();
-		c.gridx = 2;
-		c.gridy = 0;
-		panel.add(keyId, c);
+		panel.add(keyId);
 
 		//create label and define its position
 		JLabel vCodeLabel = new JLabel("  vCode: ");
-		c.gridx = 1;
-		c.gridy = 2;
-		panel.add(vCodeLabel, c);
+		panel.add(vCodeLabel);
 
 		//create text field and define its position
 		JTextField vCode = new JTextField();
-		c.gridx = 2;
-		c.gridy = 2;
-		c.ipady = 30;
-		panel.add(vCode, c);
+		panel.add(vCode);
 
 		//create button and define its position
 		JButton addAcctButton = new JButton("Add Account");
-		c.ipady = 0;
-		c.gridx = 2;
-		c.gridy = 4;
-		panel.add(addAcctButton, c);
+		panel.add(addAcctButton);
+		
+		
+		// CREATE INSETS
+		Insets insets = panel.getInsets();
+		Border bGrayLine = BorderFactory.createLineBorder(Color.GRAY);
+		
+		Dimension size = keyIdLabel.getPreferredSize();
+		keyIdLabel.setBounds(30+insets.left, 20+insets.top, size.width, size.height);
+		
+		size = keyId.getPreferredSize();
+		keyId.setBounds(100+insets.left, 20+insets.top, 250, 20);
+		keyId.setBorder(bGrayLine);
+		
+		size = vCodeLabel.getPreferredSize();
+		vCodeLabel.setBounds(30+insets.left, 50+insets.top, size.width, size.height);
+		
+		size = vCode.getPreferredSize();
+		vCode.setBounds(100+insets.left, 50+insets.top, 250, 50);
+		vCode.setBorder(bGrayLine);
+		
+		size = addAcctButton.getPreferredSize();
+		addAcctButton.setBounds(150+insets.left, 113+insets.top, 150, size.height);
+		
 
 
 		// EVENT LISTENER
