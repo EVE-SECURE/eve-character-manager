@@ -76,7 +76,7 @@ public class ECM {
 		// initialize and add skill panel
 		skillPanel = new SkillsPanel();
 		mainFrame.getContentPane().add(skillPanel, "skillPanel");
-		mainFrame.getContentPane().setFocusTraversalPolicy(new FocusTraversalOnArray(new Component[]{mainPanel,skillPanel}));
+		//mainFrame.getContentPane().setFocusTraversalPolicy(new FocusTraversalOnArray(new Component[]{mainPanel,skillPanel}));
 		
 		//add menu bar
 		menuBar = new MenuBar(this, mainFrame);
